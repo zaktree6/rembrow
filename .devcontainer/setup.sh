@@ -2,14 +2,18 @@
 set -e
 
 echo "=========================================="
-echo "Installing Cool VL Viewer dependencies..."
+echo "Installing Singularity Viewer dependencies..."
 echo "=========================================="
 
 # Install required dependencies
 sudo apt-get update
 sudo apt-get install -y \
     libgl1-mesa-glx \
+    libgl1-mesa-dri \
     libglu1-mesa \
+    libegl1-mesa \
+    libegl1 \
+    libglvnd0 \
     libopenal1 \
     libfreetype6 \
     libxrender1 \
@@ -21,23 +25,32 @@ sudo apt-get install -y \
     libsdl2-2.0-0 \
     libuuid1 \
     libdbus-1-3 \
+    libvorbisfile3 \
+    libvorbis0a \
+    libvorbisenc2 \
+    libgtk2.0-0 \
+    mesa-utils \
     wget \
     xterm
 
-# Download Cool VL Viewer if not already present
-if [ ! -d "/workspaces/cool_vl_viewer" ]; then
-    echo "Downloading Cool VL Viewer v1.32.4.19..."
+# Download Singularity Viewer if not already present
+if [ ! -d "/workspaces/Singularity_1_8_9_8338_x86_64" ]; then
+    echo "Downloading Singularity Viewer v1.8.9.8338..."
     cd /workspaces
-    wget -q http://sldev.free.fr/binaries/CoolVLViewer-1.32.4.19-Linux-x86_64-Setup
-    chmod +x CoolVLViewer-1.32.4.19-Linux-x86_64-Setup
+    wget -q https://github.com/singularity-viewer/SingularityViewer/releases/download/sv-1.8.9.8338-release/Singularity_1_8_9_8338_x86_64.tar.xz
     
-    echo "Extracting Cool VL Viewer..."
-    ./CoolVLViewer-1.32.4.19-Linux-x86_64-Setup --prefix /workspaces --mode unattended
-    rm -f CoolVLViewer-1.32.4.19-Linux-x86_64-Setup
+    echo "Extracting Singularity Viewer..."
+    tar -xf Singularity_1_8_9_8338_x86_64.tar.xz
+    rm -f Singularity_1_8_9_8338_x86_64.tar.xz
     
-    echo "✓ Cool VL Viewer installed successfully!"
+    echo "✓ Singularity Viewer installed successfully!"
 else
-    echo "✓ Cool VL Viewer already installed, skipping download"
+    echo "✓ Singularity Viewer already installed, skipping download"
+fi
+
+echo "=========================================="
+echo "Setup complete!"
+echo "=========================================="
 fi
 
 echo "=========================================="
