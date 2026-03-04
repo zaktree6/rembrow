@@ -1,0 +1,13 @@
+zakcode
+no
+set region externalhostname 100.94.182.69
+modify region set externalhostname 100.94.182.69
+change region zakcode externalhostname 100.94.182.69
+set region zakcode ExternalHostName 100.94.182.69
+zakcode
+100.94.182.69
+zak
+tree
+no
+create user
+config set [Network] ExternalHostNameForLSL 100.94.182.69

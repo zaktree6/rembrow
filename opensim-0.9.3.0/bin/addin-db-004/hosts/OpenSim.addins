@@ -1,0 +1,3 @@
+<Addins host-reference="/workspaces/rembrow/opensim-0.9.3.0/bin/OpenSim.dll">
+  <Directory shared="false">/workspaces/rembrow/opensim-0.9.3.0/bin</Directory>
+</Addins>
